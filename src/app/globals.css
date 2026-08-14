@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-void: #0B0F14;
+  --color-bg-panel: #131A22;
+  --color-signal-cyan: #4FD8E8;
+  --color-signal-amber: #F2A65A;
+  --color-line-muted: #263340;
+  --color-text-primary: #EAF2F5;
+  --color-text-dim: #8CA0AC;
+
+  --font-display: var(--font-space), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-code: var(--font-jetbrains), monospace;
+}
+
+:root {
+  --bg-void: #0B0F14;
+  --bg-panel: #131A22;
+  --signal-cyan: #4FD8E8;
+  --signal-amber: #F2A65A;
+  --line-muted: #263340;
+  --text-primary: #EAF2F5;
+  --text-dim: #8CA0AC;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F14;
+}
+::-webkit-scrollbar-thumb {
+  background: #263340;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4FD8E8;
+}
+
+/* Glowing utilities */
+.cyan-glow {
+  box-shadow: 0 0 20px rgba(79, 216, 232, 0.25);
+}
+
+.amber-glow {
+  box-shadow: 0 0 20px rgba(242, 166, 90, 0.25);
+}
+
+.cyan-text-glow {
+  text-shadow: 0 0 12px rgba(79, 216, 232, 0.5);
+}
+
+.amber-text-glow {
+  text-shadow: 0 0 12px rgba(242, 166, 90, 0.5);
+}
+
+/* Custom Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
