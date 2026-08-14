@@ -25,10 +25,10 @@ export default function TypewriterStatus({
   }, [currentIndex, text, speed]);
 
   return (
-    <div className="inline-flex items-center space-x-2 bg-[#131A22] border border-[#263340] px-4 py-2 rounded-lg font-mono text-xs text-[#8CA0AC] max-w-full overflow-x-auto shadow-inner">
-      <span className="text-[#4FD8E8] font-bold">$</span>
-      <span className="text-[#EAF2F5] whitespace-nowrap">{displayedText}</span>
-      <span className="w-2 h-4 bg-[#4FD8E8] animate-pulse inline-block"></span>
+    <div className="inline-flex items-center space-x-2 bg-[#131A22] border border-[#263340] px-3 sm:px-4 py-2 rounded-lg font-mono text-[10px] sm:text-xs text-[#8CA0AC] max-w-full text-left shadow-inner">
+      <span className="text-[#4FD8E8] font-bold shrink-0">$</span>
+      <span className="text-[#EAF2F5] break-all sm:whitespace-nowrap">{displayedText}</span>
+      <span className="w-1.5 h-3.5 sm:w-2 sm:h-4 bg-[#4FD8E8] animate-pulse inline-block shrink-0"></span>
     </div>
   );
 }
