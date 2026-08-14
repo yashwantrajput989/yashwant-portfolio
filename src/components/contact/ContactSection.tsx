@@ -36,25 +36,14 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
 
-    const emailServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const emailTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const emailPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "pRUr0jeE42RTXuz8W";
-
     try {
-      if (emailServiceId && emailTemplateId) {
-        await emailjs.send(
-          emailServiceId,
-          emailTemplateId,
-          {
-            from_name: visitorData.name || "Portfolio Visitor",
-            reply_to: visitorData.email,
-            message: `Visitor (${visitorData.email}) unlocked direct contact details (Phone & WhatsApp).`,
-          },
-          emailPublicKey
-        );
-      }
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(visitorData),
+      });
     } catch (err) {
-      console.log("Email notification logged.");
+      console.log("Direct Gmail dispatch triggered.");
     }
 
     setIsSubmitting(false);
